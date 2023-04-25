@@ -3,7 +3,7 @@
 
 | Package Name |  Version | Downloads
 |--------------|  ------- | ----
-| LogDashboard.Authorization | [![NuGet](https://img.shields.io/nuget/v/LogDashboard.Authorization)](https://www.nuget.org/packages/LogDashboard.Extensions.Authorization) | [![NuGet](https://img.shields.io/nuget/dt/LogDashboard.Authorization)](https://www.nuget.org/packages/LogDashboard.Extensions.Authorization)|
+| LogDashboard.Authorization | [![NuGet](https://img.shields.io/nuget/v/LogDashboard.Authorization)](https://www.nuget.org/packages/LogDashboard.Authorization) | [![NuGet](https://img.shields.io/nuget/dt/LogDashboard.Authorization)](https://www.nuget.org/packages/LogDashboard.Authorization)|
 
 ---------
 
