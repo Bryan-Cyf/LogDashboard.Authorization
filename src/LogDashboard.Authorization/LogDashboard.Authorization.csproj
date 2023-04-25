@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk">
+	
+	<PropertyGroup>
+		<TargetFramework>netstandard2.1</TargetFramework>
+		<Version>1.0.0</Version>
+		<Authors>Bryan</Authors>
+		<Description>[LogDashboard]封装了登陆授权页面</Description>
+		<PackageTags>LogDashboard,Authorization</PackageTags>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<RootNamespace>LogDashboard</RootNamespace>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Remove="media\login-bg.jpg" />
+		<None Remove="media\login.css" />
+		<None Remove="media\login.js" />
+		<None Remove="Views\Dashboard\Login.cshtml" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Include="media\\**\*" />
+		<EmbeddedResource Include="Views\Dashboard\Login.cshtml">
+			<Generator>RazorGenerator</Generator>
+			<LastGenOutput>Login.generated.cs</LastGenOutput>
+		</EmbeddedResource>
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="LogDashboard" Version="1.4.8" />
+		<PackageReference Include="Microsoft.AspNetCore.Hosting.Abstractions" Version="2.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Compile Update="Views\Dashboard\Login.generated.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>Login.cshtml</DependentUpon>
+		</Compile>
+	</ItemGroup>
+
+</Project>
