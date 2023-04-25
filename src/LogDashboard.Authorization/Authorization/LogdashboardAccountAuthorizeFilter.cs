@@ -52,9 +52,9 @@ namespace LogDashboard
             //Rediect
             if (!isValidAuthorize)
             {
-                if (LogDashboardLoginConsts.LoginRoute.ToLower() != context.HttpContext.Request?.Path.Value.ToLower())
+                if (LogDashboardAuthorizationConsts.LoginRoute.ToLower() != context.HttpContext.Request?.Path.Value.ToLower())
                 {
-                    var loginPath = $"{context.Options.PathMatch}{LogDashboardLoginConsts.LoginRoute}";
+                    var loginPath = $"{context.Options.PathMatch}{LogDashboardAuthorizationConsts.LoginRoute}";
                     context.HttpContext.Response.Redirect(loginPath);
                 }
                 else

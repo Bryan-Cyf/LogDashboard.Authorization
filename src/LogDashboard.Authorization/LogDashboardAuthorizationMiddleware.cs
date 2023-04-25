@@ -18,11 +18,11 @@ using Microsoft.Extensions.DependencyInjection;
 namespace LogDashboard
 {
 
-    public class LogDashboardLoginMiddleware
+    public class LogDashboardAuthorizationMiddleware
     {
         private readonly RequestDelegate _next;
 
-        public LogDashboardLoginMiddleware(RequestDelegate next)
+        public LogDashboardAuthorizationMiddleware(RequestDelegate next)
         {
             _next = next;
         }
@@ -38,12 +38,12 @@ namespace LogDashboard
             //EmbeddedFile
             if (requestUrl.Contains("css") || requestUrl.Contains("js") || requestUrl.Contains("woff")|| requestUrl.Contains("jpg"))
             {
-                await LogDashboardLgoinEmbeddedFiles.IncludeEmbeddedFile(httpContext, requestUrl);
+                await LogDashboardAuthorizationEmbeddedFiles.IncludeEmbeddedFile(httpContext, requestUrl);
                 return;
             }
 
             // Find Router
-            var router = LogDashboardRoutes.Routes.FindRoute(LogDashboardLoginConsts.LoginRoute);
+            var router = LogDashboardRoutes.Routes.FindRoute(LogDashboardAuthorizationConsts.LoginRoute);
 
             if (router == null)
             {
@@ -54,8 +54,8 @@ namespace LogDashboard
             var logDashboardContext = new LogDashboardContext(httpContext, router, opts);
 
             //Activate Handle
-            var handleType = Assembly.GetAssembly(typeof(LogDashboardLoginMiddleware))
-                .GetTypes().FirstOrDefault(x => x.Name.Contains(router.Action + "Handle"));
+            var handleType = Assembly.GetAssembly(typeof(LogDashboardAuthorizationMiddleware))
+                .GetTypes().FirstOrDefault(x => x.Name.Contains(router.Handle + "Handle"));
 
             var handle =
                 scope.ServiceProvider.GetRequiredService(handleType) as

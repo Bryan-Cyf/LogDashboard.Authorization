@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Http;
 
 namespace LogDashboard.EmbeddedFiles
 {
-    public class LogDashboardLgoinEmbeddedFiles
+    public class LogDashboardAuthorizationEmbeddedFiles
     {
         static readonly Dictionary<string, string> ResponseType = new Dictionary<string, string>
         {
@@ -24,7 +24,7 @@ namespace LogDashboard.EmbeddedFiles
 
         private static readonly Assembly Assembly;
 
-        static LogDashboardLgoinEmbeddedFiles()
+        static LogDashboardAuthorizationEmbeddedFiles()
         {
             Assembly = Assembly.GetExecutingAssembly();
         }

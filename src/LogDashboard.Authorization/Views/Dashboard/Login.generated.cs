@@ -72,7 +72,7 @@ WriteLiteral(@"<!DOCTYPE html>
 
             
             #line 16 "..\..\Views\Dashboard\Login.cshtml"
-                                     Write(LogDashboard.LogDashboardLoginConsts.LoginRoute);
+                                     Write(LogDashboard.LogDashboardAuthorizationConsts.LoginRoute);
 
             
             #line default
@@ -111,7 +111,7 @@ WriteLiteral("/css.font-awesome.min.css\" rel=\"stylesheet\">\r\n</head>\r\n\r\n
 
             
             #line 23 "..\..\Views\Dashboard\Login.cshtml"
-                                                                                        Write(LogDashboard.LogDashboardLoginConsts.LoginRoute);
+                                                                                        Write(LogDashboard.LogDashboardAuthorizationConsts.LoginRoute);
 
             
             #line default
@@ -158,7 +158,7 @@ WriteLiteral("/js.jquery.min.js\"></script>\r\n    <script src=\"");
 
             
             #line 56 "..\..\Views\Dashboard\Login.cshtml"
-                                      Write(LogDashboard.LogDashboardLoginConsts.LoginRoute);
+                                      Write(LogDashboard.LogDashboardAuthorizationConsts.LoginRoute);
 
             
             #line default

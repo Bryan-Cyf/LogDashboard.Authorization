@@ -14,11 +14,11 @@ namespace LogDashboard
     {
         public static ILogDashboardBuilder AddLogDashboard(this IServiceCollection services, LogdashboardAccountAuthorizeFilter filter, Action<LogDashboardOptions> func = null)
         {
-            LogDashboardRoutes.Routes.AddRoute(new LogDashboardRoute(LogDashboardLoginConsts.LoginRoute, typeof(Login)));
+            LogDashboardRoutes.Routes.AddRoute(new LogDashboardRoute(LogDashboardAuthorizationConsts.LoginRoute, typeof(Login)));
 
             services.AddSingleton(filter);
             services.AddSingleton<IStartupFilter, LogDashboardLoginStartupFilter>();
-            services.AddTransient<LoginHandle>();
+            services.AddTransient<AuthorizationHandle>();
             services.AddTransient<Login>();
             var options = new LogDashboardOptions();
             func?.Invoke(options);
@@ -42,7 +42,7 @@ internal class LogDashboardLoginStartupFilter : IStartupFilter
         return app =>
         {
             var options = app.ApplicationServices.GetRequiredService<LogDashboardOptions>();
-            app.Map($"{options.PathMatch}{LogDashboardLoginConsts.LoginRoute}", app => { app.UseMiddleware<LogDashboardLoginMiddleware>(); });
+            app.Map($"{options.PathMatch}{LogDashboardAuthorizationConsts.LoginRoute}", app => { app.UseMiddleware<LogDashboardAuthorizationMiddleware>(); });
             next(app);
         };
     }

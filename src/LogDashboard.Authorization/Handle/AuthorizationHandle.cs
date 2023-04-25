@@ -5,11 +5,11 @@ using System.Threading.Tasks;
 
 namespace LogDashboard.Handle
 {
-    public class LoginHandle : LogDashboardHandleBase
+    public class AuthorizationHandle : LogDashboardHandleBase
     {
         private readonly LogdashboardAccountAuthorizeFilter _filter;
 
-        public LoginHandle(
+        public AuthorizationHandle(
             IServiceProvider serviceProvider,
             LogdashboardAccountAuthorizeFilter filter) : base(serviceProvider)
         {
